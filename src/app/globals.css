@@ -24,3 +24,84 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@keyframes moveLeftRight {
+  0% {
+    transform: translateX(0px);
+  }
+
+  50% {
+    transform: translateX(-20px);
+  }
+
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+.animate-move {
+  animation: moveLeftRight 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+
+@keyframes floatSoft {
+  0% {
+    transform: translateY(0px) translateX(0px) rotate(var(--rotate));
+  }
+
+  25% {
+    transform: translateY(-6px) translateX(3px) rotate(var(--rotate));
+  }
+
+  50% {
+    transform: translateY(-10px) translateX(-3px) rotate(var(--rotate));
+  }
+
+  75% {
+    transform: translateY(-6px) translateX(2px) rotate(var(--rotate));
+  }
+
+  100% {
+    transform: translateY(0px) translateX(0px) rotate(var(--rotate));
+  }
+}
+
+.float-soft {
+  animation: floatSoft var(--duration) ease-in-out infinite;
+}
+
+@keyframes moveLeftRight {
+  0% {
+    transform: translateX(0px);
+  }
+
+  50% {
+    transform: translateX(-20px);
+  }
+
+  100% {
+    transform: translateX(0px);
+  }
+}
+
+.animate-move {
+  animation: moveLeftRight 6s ease-in-out infinite;
+}
