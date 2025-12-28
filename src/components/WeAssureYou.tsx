@@ -19,13 +19,13 @@ const WeAssureYou: React.FC = () => {
                     WE ASSURE YOU
                 </h2>
 
-                {/* IMAGE ROW */}
-                <div className="bg-[#2f3b3f] rounded-xl py-12 px-6">
+                <div className="rounded-xl py-12 px-6">
                     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8">
                         {assuranceImages.map((image, index) => (
                             <div key={index} className="flex justify-center">
                                 <AssuranceImage
                                     image={image}
+                                    alt={`Assurance ${index + 1}`}
                                     rotate={rotations[index % rotations.length]}
                                 />
                             </div>

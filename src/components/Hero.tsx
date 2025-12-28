@@ -2,8 +2,11 @@
 import { useState } from "react";
 
 import Image from "next/image";
+interface CircleBadgeProps {
+  text: string;
+}
 
-const CircleBadge = ({ text }) => {
+const CircleBadge: React.FC<CircleBadgeProps> = ({ text }) => {
   return (
     <div className="absolute top-20 right-40 w-75 h-75 z-20 flex items-center justify-center">
 

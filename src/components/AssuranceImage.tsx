@@ -3,28 +3,30 @@ import React from "react";
 interface AssuranceImageProps {
     image: string;
     alt: string;
+    rotate?: string;
 }
 
-const AssuranceImage: React.FC<AssuranceImageProps> = ({ image, alt }) => {
+const AssuranceImage: React.FC<AssuranceImageProps> = ({ image, alt, rotate }) => {
     return (
         <div
-            className="relative w-48 h-56 rounded-2xl overflow-hidden 
-            hover:rotate-0 transition-transform duration-300
-            animate-move"
+            className={`
+        relative inline-block 
+        ${rotate}
+        animate-float
+      `}
         >
-            {/* PIN IMAGE */}
+            {/* PIN */}
             <img
                 src="/assert/pin.png"
                 alt="Pin"
-                className="absolute top-4 left-[60%] -translate-x-1/2 -translate-y-1/2 
-                           w-8 h-8 z-20 pointer-events-none"
+                className="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-8 z-20"
             />
 
             {/* IMAGE */}
             <img
                 src={image}
                 alt={alt}
-                className="w-full h-full object-cover"
+                className="block h-auto w-auto max-w-full"
             />
         </div>
     );
