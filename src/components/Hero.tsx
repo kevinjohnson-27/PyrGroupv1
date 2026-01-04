@@ -1,37 +1,59 @@
 "use client";
 import { useState } from "react";
-
 import Image from "next/image";
+
 interface CircleBadgeProps {
   text: string;
+  nextText: () => void;
+  prevText: () => void;
 }
 
-const CircleBadge: React.FC<CircleBadgeProps> = ({ text }) => {
+const CircleBadge: React.FC<CircleBadgeProps> = ({
+  text,
+  nextText,
+  prevText,
+}) => {
   return (
-    <div className="absolute top-20 right-40 w-75 h-75 z-20 flex items-center justify-center">
-
-      {/* White Base */}
-      <div className="absolute w-full h-full bg-white rounded-full border-3 border-black"></div>
-
-      {/* Logo Image */}
-      <div className="absolute -top-27 -right-27 w-130 h-130">
+    <div
+      className="absolute top-14 right-40 w-75 h-75 z-20
+      flex flex-col items-center justify-center
+      rounded-full border-2 border-blue-600 border-dashed"
+    >
+      {/* IMAGE (DO NOT USE 100% HEIGHT) */}
+      <div className="relative w-[85%] h-[65%] -right-10 flex items-center justify-center">
         <Image
-          src="/assert/stroke1.png"
-          alt="circle logo"
+          src="/assert/insta-carousel.png"
+          alt="circle badge"
           fill
           className="object-contain"
         />
       </div>
-      {/* Center Text */}
-      <span className="absolute text-black font-bold text-lg">
-        {text}
-      </span>
+
+      {/* INLINE ARROW - TEXT - ARROW (NO GAP) */}
+      <div className="flex items-center gap-3 mt-0">
+        <button
+          onClick={prevText}
+          className="bg-black text-white rounded-full w-8 h-8
+          flex items-center justify-center"
+        >
+          ‹
+        </button>
+
+        <span className="font-semibold text-black text-sm whitespace-nowrap">
+          {text}
+        </span>
+
+        <button
+          onClick={nextText}
+          className="bg-black text-white rounded-full w-8 h-8
+          flex items-center justify-center"
+        >
+          ›
+        </button>
+      </div>
     </div>
   );
 };
-
-
-
 
 export default function Hero() {
   const texts = ["Review Papers", "Codes", "PPTs", "Documents"];
@@ -46,13 +68,13 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative flex justify-center px-6 bg-white">
+    <section className="relative flex justify-center px-6 bg-white overflow-visible">
 
       {/* BACKGROUND FLOATING CIRCLES */}
-      <div className="absolute -top-10 left-17 w-60 h-60 bg-orange-500 rounded-full opacity-100 z-0"></div>
-      <div className="absolute -top-17 left-35 w-32 h-32 bg-blue-700 rounded-full opacity-100 z-0"></div>
-      <div className="absolute bottom-0 right-17 w-60 h-60 bg-blue-700 rounded-full opacity-100 z-0"></div>
-      <div className="absolute -bottom-12 right-30 w-32 h-32 bg-orange-500 rounded-full opacity-100 z-0"></div>
+      <div className="absolute -top-10 left-17 w-60 h-60 bg-orange-500 rounded-full z-0"></div>
+      <div className="absolute -top-17 left-35 w-32 h-32 bg-blue-700 rounded-full z-0"></div>
+      <div className="absolute bottom-0 right-17 w-60 h-60 bg-blue-700 rounded-full z-0"></div>
+      <div className="absolute -bottom-12 right-30 w-32 h-32 bg-orange-500 rounded-full z-0"></div>
 
       {/* MAIN GRADIENT BOX */}
       <div
@@ -60,8 +82,12 @@ export default function Hero() {
         bg-gradient-to-br from-orange-500/70 via-purple-500/70 to-indigo-600/70
         p-40"
       >
-        {/* Circle Badge */}
-        <CircleBadge text={texts[index]} />
+        {/* CIRCLE BADGE */}
+        <CircleBadge
+          text={texts[index]}
+          nextText={nextText}
+          prevText={prevText}
+        />
 
         {/* MAIN TEXT */}
         <h1 className="text-5xl font-extrabold text-black max-w-3xl leading-tight">
@@ -69,24 +95,6 @@ export default function Hero() {
           <span className="border-4 border-white px-3">time</span>
           <br /> or you don’t pay.
         </h1>
-
-        {/* LEFT ARROW */}
-        <button
-          onClick={prevText}
-          className="absolute right-110 top-1/2 -translate-y-1/2 
-          bg-black text-white rounded-full w-10 h-10 z-20"
-        >
-          ‹
-        </button>
-
-        {/* RIGHT ARROW */}
-        <button
-          onClick={nextText}
-          className="absolute right-35 top-1/2 -translate-y-1/2 
-          bg-black text-white rounded-full w-10 h-10 z-20"
-        >
-          ›
-        </button>
       </div>
     </section>
   );

@@ -9,11 +9,7 @@ interface AssuranceImageProps {
 const AssuranceImage: React.FC<AssuranceImageProps> = ({ image, alt, rotate }) => {
     return (
         <div
-            className={`
-        relative inline-block 
-        ${rotate}
-        animate-float
-      `}
+            className={`relative inline-block ${rotate} animate-move-lr`}
         >
             {/* PIN */}
             <img

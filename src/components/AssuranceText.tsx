@@ -22,26 +22,28 @@ const AssuranceText: React.FC<AssuranceTextProps> = ({
     const [firstWord, secondWord] = highlight.split(" ");
 
     return (
-        <div className="max-w-xs">
-            {/* Quote text */}
-            <p className="text-sm text-gray-700 leading-relaxed italic">
-                “{description}”
-            </p>
+        <div className="overflow-hidden w-full">
+            <div className="max-w-xs animate-slide">
+                {/* Quote text */}
+                <p className="text-sm text-gray-700 leading-relaxed italic">
+                    “{description}”
+                </p>
 
-            {/* Author */}
-            <p className="mt-1 text-xs text-gray-500">
-                {author}
-            </p>
+                {/* Author */}
+                <p className="mt-1 text-xs text-gray-500">
+                    {author}
+                </p>
 
-            {/* Highlight */}
-            <p className="mt-6 text-center font-semibold">
-                <span className={accentColorMap[accent]}>
-                    {firstWord}
-                </span>{" "}
-                <span className="text-black">
-                    {secondWord}
-                </span>
-            </p>
+                {/* Highlight */}
+                <p className="mt-6 text-center font-semibold">
+                    <span className={accentColorMap[accent]}>
+                        {firstWord}
+                    </span>{" "}
+                    <span className="text-black">
+                        {secondWord}
+                    </span>
+                </p>
+            </div>
         </div>
     );
 };

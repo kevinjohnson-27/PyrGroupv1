@@ -25,13 +25,13 @@ const TestimonialCard: React.FC<Props> = ({
                 "--rotate": rotate,
                 "--duration": duration,
             } as React.CSSProperties}
-            className="relative bg-white w-72 p-6 rounded-xl shadow-xl float-soft"
+            className="relative  bg-gradient-to-b from-[#FFF1E9] to-[#BAC6D8] w-72 p-6 rounded-xl shadow-xl float-soft"
         >
             {/* Pin */}
             <img
                 src="/assert/pin.png"
                 alt="pin"
-                className="absolute -top-4 left-1/2 -translate-x-1/2 w-8 z-20"
+                className="absolute -top-4 left-1/5 -translate-x-1/2 w-8 z-20"
             />
 
             {/* Avatar */}

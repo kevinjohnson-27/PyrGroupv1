@@ -2,7 +2,7 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #ffffff;
 }
 
 @theme inline {
@@ -14,7 +14,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #fffff;
     --foreground: #ededed;
   }
 }
@@ -122,4 +122,33 @@ body {
 
 .animate-float {
   animation: float 4s ease-in-out infinite;
+}
+
+
+@keyframes floatX {
+  0% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(20px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-float-x {
+  animation: floatX 4s ease-in-out infinite;
+}
+
+@keyframes moveLeftToRight {
+  0% {
+    transform: translateX(-40px);
+  }
+
+  100% {
+    transform: translateX(40px);
+  }
 }
