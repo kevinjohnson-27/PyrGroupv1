@@ -23,9 +23,20 @@ const AboutSection = () => {
 
                 {/* TITLE */}
                 <div className="text-center mb-20">
-                    <h2 className="text-5xl font-extrabold tracking-wide text-black">
-                        ABOUT US
-                    </h2>
+                    <div className="flex items-center justify-center">
+                        {/* LOGO */}
+
+
+                        {/* TEXT */}
+                        <h2 className="text-5xl font-extrabold tracking-wide text-black">
+                            ABOUT US
+                        </h2>
+                        <img
+                            src="/assert/stroke1.png"   // 🔁 change to your logo path
+                            alt="Company Logo"
+                            className="h-50 w-50"
+                        />
+                    </div>
                 </div>
 
                 {/* MAIN GRID */}
@@ -35,20 +46,20 @@ const AboutSection = () => {
                     <div className="relative overflow-visible">
 
                         {/* DECORATIVE CIRCLES (BEHIND) */}
-                        <span className="absolute -top-16 -left-8 w-32 h-32 bg-blue-700 rounded-full -z-10"></span>
+                        <span className="absolute -top-16 -left-8 w-32 h-32 bg-[#094BA7] rounded-full -z-10"></span>
                         <span className="absolute -top-18 left-13 w-20 h-20 bg-orange-500 rounded-full -z-10"></span>
                         <span className="absolute -bottom-16 -right-8 w-32 h-32 bg-orange-500 rounded-full -z-10"></span>
-                        <span className="absolute -bottom-18 right-13 w-20 h-20 bg-blue-700 rounded-full -z-10"></span>
+                        <span className="absolute -bottom-18 right-13 w-20 h-20 bg-[#094BA7] rounded-full -z-10"></span>
 
                         {/* CONTENT BOX */}
                         <div className="relative z-10 border-[3px] border-black rounded-3xl p-14">
 
                             {/* MISSION */}
                             <div className="mb-16">
-                                <h3 className="text-4xl font-extrabold mb-4 text-black">
+                                <h3 className="text-4xl font-extrabold mb-4 text-black text-right">
                                     MISSION
                                 </h3>
-                                <p className="text-gray-700 text-lg leading-relaxed max-w-md">
+                                <p className="text-black text-lg font-extrabold leading-relaxed max-w-md">
                                     To deliver high-quality academic and technical
                                     solutions with innovation, consistency, and
                                     real-world impact.
@@ -60,7 +71,7 @@ const AboutSection = () => {
                                 <h3 className="text-4xl font-extrabold mb-4 text-black">
                                     VISION
                                 </h3>
-                                <p className="text-gray-700 text-lg leading-relaxed max-w-md">
+                                <p className="text-black text-lg font-extrabold leading-relaxed max-w-md">
                                     To become a trusted digital innovation partner
                                     empowering students and professionals with
                                     future-ready technology.

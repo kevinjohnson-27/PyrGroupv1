@@ -72,8 +72,8 @@ export default function Hero() {
 
       {/* BACKGROUND FLOATING CIRCLES */}
       <div className="absolute -top-10 left-17 w-60 h-60 bg-orange-500 rounded-full z-0"></div>
-      <div className="absolute -top-17 left-35 w-32 h-32 bg-blue-700 rounded-full z-0"></div>
-      <div className="absolute bottom-0 right-17 w-60 h-60 bg-blue-700 rounded-full z-0"></div>
+      <div className="absolute -top-17 left-35 w-32 h-32 bg-[#094BA7] rounded-full z-0"></div>
+      <div className="absolute bottom-0 right-17 w-60 h-60 bg-[#094BA7] rounded-full z-0"></div>
       <div className="absolute -bottom-12 right-30 w-32 h-32 bg-orange-500 rounded-full z-0"></div>
 
       {/* MAIN GRADIENT BOX */}
