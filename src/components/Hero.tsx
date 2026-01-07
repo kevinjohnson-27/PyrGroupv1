@@ -15,26 +15,31 @@ const CircleBadge: React.FC<CircleBadgeProps> = ({
 }) => {
   return (
     <div
-      className="absolute top-14 right-40 w-75 h-75 z-20
-      flex flex-col items-center justify-center
-      rounded-full border-2 border-blue-600 border-dashed"
+      className="
+        /* Mobile: Centered in flow */
+        w-full h-auto z-20
+        flex flex-col items-center justify-center
+        static mt-10
+        /* Laptop: Your exact design */
+        lg:w-75 lg:h-75
+        lg:absolute lg:top-15 lg:right-40 lg:mt-0
+      "
     >
-      {/* IMAGE (DO NOT USE 100% HEIGHT) */}
-      <div className="relative w-[85%] h-[65%] -right-10 flex items-center justify-center">
+      {/* IMAGE */}
+      <div className="relative w-[200px] h-[200px] lg:w-[800%] lg:h-[850%] -right-2 flex items-center justify-center">
         <Image
-          src="/assert/insta-carousel.png"
+          src="/assert/heroImg.png"
           alt="circle badge"
           fill
-          className="object-contain"
+          className="object-contain scale-165"
         />
       </div>
 
-      {/* INLINE ARROW - TEXT - ARROW (NO GAP) */}
-      <div className="flex items-center gap-3 mt-0">
+      {/* ARROWS + TEXT */}
+      <div className="flex items-center gap-3 -translate-y-10 -translate-x-4">
         <button
           onClick={prevText}
-          className="bg-black text-white rounded-full w-8 h-8
-          flex items-center justify-center"
+          className="bg-black text-white rounded-full w-8 h-8 flex items-center justify-center"
         >
           ‹
         </button>
@@ -45,8 +50,7 @@ const CircleBadge: React.FC<CircleBadgeProps> = ({
 
         <button
           onClick={nextText}
-          className="bg-black text-white rounded-full w-8 h-8
-          flex items-center justify-center"
+          className="bg-black text-white rounded-full w-8 h-8 flex items-center justify-center"
         >
           ›
         </button>
@@ -68,33 +72,71 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative flex justify-center px-6 bg-white overflow-visible">
-
+    <section
+      id="home"
+      className="relative flex justify-center px-6 bg-white  lg:overflow-visible"
+    >
+      {/* BACKGROUND FLOATING CIRCLES - Adjusted for mobile visibility */}
       {/* BACKGROUND FLOATING CIRCLES */}
-      <div className="absolute -top-10 left-17 w-60 h-60 bg-orange-500 rounded-full z-0"></div>
-      <div className="absolute -top-17 left-35 w-32 h-32 bg-[#094BA7] rounded-full z-0"></div>
-      <div className="absolute bottom-0 right-17 w-60 h-60 bg-[#094BA7] rounded-full z-0"></div>
-      <div className="absolute -bottom-12 right-30 w-32 h-32 bg-orange-500 rounded-full z-0"></div>
+      <div
+        className="
+  absolute z-0 rounded-full bg-orange-500
+  -top-6 left-10 w-16 h-16         /* Mobile */
+  sm:left-30 sm:w-20 sm:h-20       /* Tablet */
+  lg:-top-10 lg:left-63 lg:w-22 lg:h-22 /* Your original Laptop design */
+"
+      ></div>
 
+      <div
+        className="
+  absolute z-0 rounded-full bg-[#094BA7]
+  -top-8 left-4 w-20 h-20          /* Mobile (Overlaps orange) */
+  sm:left-10 sm:w-28 sm:h-28       /* Tablet */
+  lg:-top-12 lg:left-35 lg:w-36 lg:h-36 /* Your original Laptop design */
+"
+      ></div>
+
+      <div
+        className="
+  absolute z-0 rounded-full bg-[#094BA7]
+  -bottom-6 right-10 w-16 h-16     /* Mobile */
+  sm:right-20 sm:w-20 sm:h-20      /* Tablet */
+  lg:-bottom-10 lg:right-58 lg:w-22 lg:h-22 /* Your original Laptop design */
+"
+      ></div>
+
+      <div
+        className="
+  absolute z-0 rounded-full bg-orange-500
+  -bottom-8 right-4 w-20 h-20       /* Mobile (Overlaps blue) */
+  sm:right-30 sm:w-28 sm:h-28        /* Tablet */
+  lg:-bottom-12 lg:right-30 lg:w-36 lg:h-36 /* Your original Laptop design */
+"
+      ></div>
       {/* MAIN GRADIENT BOX */}
       <div
-        className="relative z-10 w-full max-w-6xl rounded-3xl
-        bg-gradient-to-br from-orange-500/70 via-purple-500/70 to-indigo-600/70
-        p-40"
+        className="
+          relative z-10 w-full max-w-6xl rounded-3xl
+          bg-gradient-to-br from-orange-500/70 via-purple-500/70 to-indigo-600/70
+          p-10 sm:p-16 lg:p-40
+          /* Mobile: Stacks vertically | Laptop: Original layout */
+          flex flex-col lg:block      "
       >
+        {/* MAIN TEXT */}
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-black max-w-3xl leading-tight text-center lg:text-left">
+          Delivered on{" "}
+          <span className="border-4 border-white px-3 inline-block lg:inline">
+            time
+          </span>
+          <br /> or you don’t pay.
+        </h1>
+
         {/* CIRCLE BADGE */}
         <CircleBadge
           text={texts[index]}
           nextText={nextText}
           prevText={prevText}
         />
-
-        {/* MAIN TEXT */}
-        <h1 className="text-5xl font-extrabold text-black max-w-3xl leading-tight">
-          Delivered on{" "}
-          <span className="border-4 border-white px-3">time</span>
-          <br /> or you don’t pay.
-        </h1>
       </div>
     </section>
   );
